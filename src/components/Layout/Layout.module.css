@@ -1,0 +1,7 @@
+.page-wrapper {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 812px;
+  width: 446px;
+}
