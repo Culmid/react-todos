@@ -6,6 +6,10 @@ import { initialState, reducer } from "../../reducers/todos";
 function TodoList() {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  function onDeleteTodo(id) {
+    dispatch({ type: "deleteTodo", payload: { id: id } });
+  }
+
   return (
     <>
       <div>
@@ -14,7 +18,13 @@ function TodoList() {
           {state
             .filter((todo) => !todo.isComplete)
             .map(({ id, title, isComplete }) => (
-              <Todo id={id} title={title} isComplete={isComplete} />
+              <Todo
+                key={id}
+                id={id}
+                title={title}
+                isComplete={isComplete}
+                onDeleteTodo={onDeleteTodo}
+              />
             ))}
         </div>
       </div>
@@ -24,7 +34,13 @@ function TodoList() {
           {state
             .filter((todo) => todo.isComplete)
             .map(({ id, title, isComplete }) => (
-              <Todo id={id} title={title} isComplete={isComplete} />
+              <Todo
+                key={id}
+                id={id}
+                title={title}
+                isComplete={isComplete}
+                onDeleteTodo={onDeleteTodo}
+              />
             ))}
         </div>
       </div>

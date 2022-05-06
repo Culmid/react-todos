@@ -22,8 +22,8 @@ export const reducer = (state, action) => {
       console.log("addTodo");
       return state;
     case "deleteTodo":
-      console.log("deleteTodo");
-      return state;
+      console.log("deleteTodo", action.payload.id);
+      return state.filter((todo) => todo.id !== action.payload.id);
     case "resetTodo":
       console.log("resetTodos");
       return state;
