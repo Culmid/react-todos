@@ -19,8 +19,15 @@ export const initialState = [
 export const reducer = (state, action) => {
   switch (action.type) {
     case "addTodo":
-      console.log("addTodo");
-      return state;
+      console.log("addTodo", action.payload.title);
+      const newTodos = [...state];
+      const newId = Math.floor(Math.random() * 9999999);
+      newTodos.push({
+        id: newId,
+        title: action.payload.title,
+        isComplete: false,
+      });
+      return newTodos;
     case "deleteTodo":
       console.log("deleteTodo", action.payload.id);
       return state.filter((todo) => todo.id !== action.payload.id);
