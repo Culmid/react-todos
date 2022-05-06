@@ -1,0 +1,27 @@
+.todo-wrapper {
+  background: #c4c4c4;
+  width: 405px;
+  height: 82px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  box-sizing: border-box;
+}
+
+h3 {
+  font-size: 26px;
+  margin: 0;
+}
+
+button {
+  width: 42px;
+  height: 42px;
+  background: #403d3d;
+  color: white;
+  font-size: 26px;
+  border: none;
+  margin-left: 16px;
+  cursor: pointer;
+}
