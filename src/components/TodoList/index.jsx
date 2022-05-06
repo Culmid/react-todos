@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import Todo from "../Todo";
-import "./TodoList.module.css";
+import styles from "./TodoList.module.css";
 import { initialState, reducer } from "../../reducers/todos";
 
 function TodoList() {
@@ -10,8 +10,17 @@ function TodoList() {
     dispatch({ type: "deleteTodo", payload: { id: id } });
   }
 
+  function onResetButtonClick() {
+    dispatch({ type: "resetTodos" });
+  }
+
   return (
     <>
+      <div className={styles["buttons-div"]}>
+        <button className={styles.button} onClick={onResetButtonClick}>
+          Reset
+        </button>
+      </div>
       <div>
         <h2>To Do</h2>
         <div>

@@ -24,9 +24,9 @@ export const reducer = (state, action) => {
     case "deleteTodo":
       console.log("deleteTodo", action.payload.id);
       return state.filter((todo) => todo.id !== action.payload.id);
-    case "resetTodo":
+    case "resetTodos":
       console.log("resetTodos");
-      return state;
+      return initialState;
     default:
       throw Error("Unrecognized reducer action type");
   }
