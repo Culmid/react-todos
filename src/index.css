@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: lightcyan;
+  background: lightcyan;
   font-family: "Inter", sans-serif;
   font-weight: 400;
 }
