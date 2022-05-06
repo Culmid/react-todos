@@ -25,6 +25,10 @@ function TodoList() {
     setFormVisible(true);
   }
 
+  function onToggleTodo(id) {
+    dispatch({ type: "toggleTodo", payload: { id: id } });
+  }
+
   return (
     <>
       <div className={styles["buttons-div"]}>
@@ -47,6 +51,7 @@ function TodoList() {
                 title={title}
                 isComplete={isComplete}
                 onDeleteTodo={onDeleteTodo}
+                onToggleTodo={onToggleTodo}
               />
             ))}
         </div>
@@ -63,6 +68,7 @@ function TodoList() {
                 title={title}
                 isComplete={isComplete}
                 onDeleteTodo={onDeleteTodo}
+                onToggleTodo={onToggleTodo}
               />
             ))}
         </div>

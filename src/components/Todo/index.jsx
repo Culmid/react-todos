@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Todo.module.css";
 
-function Todo({ id, title, isComplete, onDeleteTodo }) {
+function Todo({ id, title, isComplete, onDeleteTodo, onToggleTodo }) {
   function onDeleteClick(id) {
     onDeleteTodo(id);
   }
@@ -10,7 +10,9 @@ function Todo({ id, title, isComplete, onDeleteTodo }) {
     <div className={styles["todo-wrapper"]}>
       <h3>{title}</h3>
       <div>
-        <button className={styles.button}>O</button>
+        <button className={styles.button} onClick={() => onToggleTodo(id)}>
+          {isComplete ? "C" : "O"}
+        </button>
         <button className={styles.button} onClick={() => onDeleteClick(id)}>
           X
         </button>
