@@ -34,6 +34,13 @@ export const reducer = (state, action) => {
     case "resetTodos":
       console.log("resetTodos");
       return initialState;
+    case "toggleTodo":
+      console.log("toggleTodo", action.payload.id);
+      return state.map((todo) =>
+        todo.id === action.payload.id
+          ? { ...todo, isComplete: !todo.isComplete }
+          : todo
+      );
     default:
       throw Error("Unrecognized reducer action type");
   }
