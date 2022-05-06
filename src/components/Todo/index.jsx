@@ -10,8 +10,10 @@ function Todo({ id, title, isComplete, onDeleteTodo }) {
     <div className={styles["todo-wrapper"]}>
       <h3>{title}</h3>
       <div>
-        <button>O</button>
-        <button onClick={() => onDeleteClick(id)}>X</button>
+        <button className={styles.button}>O</button>
+        <button className={styles.button} onClick={() => onDeleteClick(id)}>
+          X
+        </button>
       </div>
     </div>
   );
