@@ -42,42 +42,47 @@ function TodoList() {
           Add Todo
         </button>
       </div>
-      <div>
-        <h2>To Do</h2>
+      {state.find((todo) => !todo.isComplete) ? (
         <div>
-          {state
-            .filter((todo) => !todo.isComplete)
-            .map(({ id, title, isComplete, background }) => (
-              <Todo
-                key={id}
-                id={id}
-                title={title}
-                isComplete={isComplete}
-                background={background}
-                onDeleteTodo={onDeleteTodo}
-                onToggleTodo={onToggleTodo}
-              />
-            ))}
+          <h2>To Do</h2>
+          <div>
+            {state
+              .filter((todo) => !todo.isComplete)
+              .map(({ id, title, isComplete, background }) => (
+                <Todo
+                  key={id}
+                  id={id}
+                  title={title}
+                  isComplete={isComplete}
+                  background={background}
+                  onDeleteTodo={onDeleteTodo}
+                  onToggleTodo={onToggleTodo}
+                />
+              ))}
+          </div>
         </div>
-      </div>
-      <div>
-        <h2>Completed</h2>
+      ) : null}
+      {state.find((todo) => todo.isComplete) ? (
         <div>
-          {state
-            .filter((todo) => todo.isComplete)
-            .map(({ id, title, isComplete, background }) => (
-              <Todo
-                key={id}
-                id={id}
-                title={title}
-                isComplete={isComplete}
-                background={background}
-                onDeleteTodo={onDeleteTodo}
-                onToggleTodo={onToggleTodo}
-              />
-            ))}
+          <h2>Completed</h2>
+          <div>
+            {state
+              .filter((todo) => todo.isComplete)
+              .map(({ id, title, isComplete, background }) => (
+                <Todo
+                  key={id}
+                  id={id}
+                  title={title}
+                  isComplete={isComplete}
+                  background={background}
+                  onDeleteTodo={onDeleteTodo}
+                  onToggleTodo={onToggleTodo}
+                />
+              ))}
+          </div>
         </div>
-      </div>
+      ) : null}
+      {state.length === 0 ? <h2>No Todos...</h2> : null}
       {isFormVisible ? <NewTodoForm onAddNewTodo={onAddNewTodo} /> : null}
     </>
   );
