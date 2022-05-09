@@ -1,7 +1,7 @@
-import React, { useReducer, useState } from "react";
+import { useReducer, useState } from "react";
 import Todo from "../Todo";
 import styles from "./TodoList.module.css";
-import { initialState, reducer } from "../../reducers/todos";
+import { initialState, reducer, TodoType } from "../../reducers/todos";
 import NewTodoForm from "../NewTodoForm";
 import { FiPlus, FiRefreshCw } from "react-icons/fi";
 
@@ -9,7 +9,7 @@ function TodoList() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [isFormVisible, setFormVisible] = useState(false);
 
-  function onAddNewTodo(title, background, color) {
+  function onAddNewTodo(title: string, background: string, color: string) {
     dispatch({
       type: "addTodo",
       payload: { title: title, background: background, color: color },
@@ -17,7 +17,7 @@ function TodoList() {
     setFormVisible(false);
   }
 
-  function onDeleteTodo(id) {
+  function onDeleteTodo(id: number) {
     dispatch({ type: "deleteTodo", payload: { id: id } });
   }
 
@@ -29,7 +29,7 @@ function TodoList() {
     setFormVisible(true);
   }
 
-  function onToggleTodo(id) {
+  function onToggleTodo(id: number) {
     dispatch({ type: "toggleTodo", payload: { id: id } });
   }
 
@@ -47,13 +47,13 @@ function TodoList() {
           <FiPlus />
         </button>
       </div>
-      {state.find((todo) => !todo.isComplete) ? (
+      {state.find((todo: TodoType) => !todo.isComplete) ? (
         <div>
           <h2>To Do</h2>
           <div>
             {state
-              .filter((todo) => !todo.isComplete)
-              .map(({ id, title, isComplete, background, color }) => (
+              .filter((todo: TodoType) => !todo.isComplete)
+              .map(({ id, title, isComplete, background, color }: TodoType) => (
                 <Todo
                   key={id}
                   id={id}
@@ -68,13 +68,13 @@ function TodoList() {
           </div>
         </div>
       ) : null}
-      {state.find((todo) => todo.isComplete) ? (
+      {state.find((todo: TodoType) => todo.isComplete) ? (
         <div>
           <h2>Completed</h2>
           <div>
             {state
-              .filter((todo) => todo.isComplete)
-              .map(({ id, title, isComplete, background, color }) => (
+              .filter((todo: TodoType) => todo.isComplete)
+              .map(({ id, title, isComplete, background, color }: TodoType) => (
                 <Todo
                   key={id}
                   id={id}

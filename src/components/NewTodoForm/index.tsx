@@ -2,24 +2,30 @@ import React, { useState } from "react";
 import styles from "./NewTodoForm.module.css";
 import { FiX } from "react-icons/fi";
 
-function NewTodoForm({ onAddNewTodo, onFormExit }) {
+function NewTodoForm({
+  onAddNewTodo,
+  onFormExit,
+}: {
+  onAddNewTodo: (title: string, background: string, color: string) => void;
+  onFormExit: () => void;
+}) {
   const [title, setTitle] = useState("");
   const [background, setBackground] = useState("#c4c4c4");
   const [color, setColor] = useState("#000000");
 
-  function onTitleChange(event) {
+  function onTitleChange(event: React.FormEvent<HTMLInputElement>) {
     setTitle(event.currentTarget.value);
   }
 
-  function onBackgroundChange(event) {
+  function onBackgroundChange(event: React.FormEvent<HTMLInputElement>) {
     setBackground(event.currentTarget.value);
   }
 
-  function onColorChange(event) {
+  function onColorChange(event: React.FormEvent<HTMLInputElement>) {
     setColor(event.currentTarget.value);
   }
 
-  function onFormSubmit(event) {
+  function onFormSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     onAddNewTodo(title, background, color);
   }
