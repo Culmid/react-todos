@@ -8,20 +8,32 @@
   align-items: center;
   margin: 20px 0;
   box-sizing: border-box;
+  border-radius: 100px;
+  filter: drop-shadow(0 5px 2px #000);
 }
 
 h3 {
   font-size: 26px;
   margin: 0;
+  max-width: 375px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.button-container {
+  display: flex;
 }
 
 .button {
-  width: 42px;
-  height: 42px;
-  background: #403d3d;
-  color: white;
+  padding: 0;
+  background: none;
+  color: inherit;
   font-size: 26px;
   border: none;
   margin-left: 16px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
