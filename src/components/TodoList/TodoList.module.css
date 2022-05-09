@@ -20,4 +20,5 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
+  filter: drop-shadow(0 5px 2px #000);
 }

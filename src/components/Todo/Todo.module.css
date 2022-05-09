@@ -8,6 +8,8 @@
   align-items: center;
   margin: 20px 0;
   box-sizing: border-box;
+  border-radius: 100px;
+  filter: drop-shadow(0 5px 2px #000);
 }
 
 h3 {
@@ -22,7 +24,6 @@ h3 {
 .button {
   padding: 0;
   background: none;
-  /* color: white; */
   color: black;
   font-size: 26px;
   border: none;
