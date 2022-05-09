@@ -15,6 +15,10 @@
 h3 {
   font-size: 26px;
   margin: 0;
+  max-width: 375px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .button-container {
@@ -24,7 +28,7 @@ h3 {
 .button {
   padding: 0;
   background: none;
-  color: black;
+  color: inherit;
   font-size: 26px;
   border: none;
   margin-left: 16px;
