@@ -33,6 +33,10 @@ function TodoList() {
     dispatch({ type: "toggleTodo", payload: { id: id } });
   }
 
+  function onFormExit() {
+    setFormVisible(false);
+  }
+
   return (
     <>
       <div className={styles["buttons-div"]}>
@@ -86,7 +90,9 @@ function TodoList() {
         </div>
       ) : null}
       {state.length === 0 ? <h2>No Todos...</h2> : null}
-      {isFormVisible ? <NewTodoForm onAddNewTodo={onAddNewTodo} /> : null}
+      {isFormVisible ? (
+        <NewTodoForm onAddNewTodo={onAddNewTodo} onFormExit={onFormExit} />
+      ) : null}
     </>
   );
 }

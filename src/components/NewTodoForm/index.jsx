@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import styles from "./NewTodoForm.module.css";
+import { FiX } from "react-icons/fi";
 
-function NewTodoForm({ onAddNewTodo }) {
+function NewTodoForm({ onAddNewTodo, onFormExit }) {
   const [title, setTitle] = useState("");
   const [background, setBackground] = useState("#c4c4c4");
   const [color, setColor] = useState("#000000");
@@ -52,6 +53,9 @@ function NewTodoForm({ onAddNewTodo }) {
       />
       <button className={styles.button} type="submit">
         Submit
+      </button>
+      <button className={styles.exit} type="button" onClick={onFormExit}>
+        <FiX />
       </button>
     </form>
   );
