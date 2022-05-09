@@ -15,13 +15,20 @@ h3 {
   margin: 0;
 }
 
+.button-container {
+  display: flex;
+}
+
 .button {
-  width: 42px;
-  height: 42px;
-  background: #403d3d;
-  color: white;
+  padding: 0;
+  background: none;
+  /* color: white; */
+  color: black;
   font-size: 26px;
   border: none;
   margin-left: 16px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

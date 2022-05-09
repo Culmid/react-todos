@@ -3,6 +3,7 @@ import Todo from "../Todo";
 import styles from "./TodoList.module.css";
 import { initialState, reducer } from "../../reducers/todos";
 import NewTodoForm from "../NewTodoForm";
+import { FiPlus, FiRefreshCw } from "react-icons/fi";
 
 function TodoList() {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -36,10 +37,10 @@ function TodoList() {
     <>
       <div className={styles["buttons-div"]}>
         <button className={styles.button} onClick={onResetButtonClick}>
-          Reset
+          <FiRefreshCw />
         </button>
         <button className={styles.button} onClick={onAddTodoClick}>
-          Add Todo
+          <FiPlus />
         </button>
       </div>
       {state.find((todo) => !todo.isComplete) ? (

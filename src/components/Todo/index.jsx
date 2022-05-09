@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Todo.module.css";
+import { FiCheckCircle, FiCircle, FiTrash } from "react-icons/fi";
 
 function Todo({
   id,
@@ -16,12 +17,12 @@ function Todo({
   return (
     <div className={styles["todo-wrapper"]} style={{ background: background }}>
       <h3>{title}</h3>
-      <div>
+      <div className={styles["button-container"]}>
         <button className={styles.button} onClick={() => onToggleTodo(id)}>
-          {isComplete ? "C" : "O"}
+          {isComplete ? <FiCheckCircle /> : <FiCircle />}
         </button>
         <button className={styles.button} onClick={() => onDeleteClick(id)}>
-          X
+          <FiTrash />
         </button>
       </div>
     </div>
