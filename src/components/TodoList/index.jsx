@@ -8,8 +8,11 @@ function TodoList() {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [isFormVisible, setFormVisible] = useState(false);
 
-  function onAddNewTodo(title) {
-    dispatch({ type: "addTodo", payload: { title: title } });
+  function onAddNewTodo(title, background) {
+    dispatch({
+      type: "addTodo",
+      payload: { title: title, background: background },
+    });
     setFormVisible(false);
   }
 
@@ -44,12 +47,13 @@ function TodoList() {
         <div>
           {state
             .filter((todo) => !todo.isComplete)
-            .map(({ id, title, isComplete }) => (
+            .map(({ id, title, isComplete, background }) => (
               <Todo
                 key={id}
                 id={id}
                 title={title}
                 isComplete={isComplete}
+                background={background}
                 onDeleteTodo={onDeleteTodo}
                 onToggleTodo={onToggleTodo}
               />
@@ -61,12 +65,13 @@ function TodoList() {
         <div>
           {state
             .filter((todo) => todo.isComplete)
-            .map(({ id, title, isComplete }) => (
+            .map(({ id, title, isComplete, background }) => (
               <Todo
                 key={id}
                 id={id}
                 title={title}
                 isComplete={isComplete}
+                background={background}
                 onDeleteTodo={onDeleteTodo}
                 onToggleTodo={onToggleTodo}
               />
