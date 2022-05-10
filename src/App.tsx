@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Todos from "./pages/Todos";
 import About from "./pages/About";
 
-function App() {
+function App(): JSX.Element {
   return (
     <BrowserRouter>
       <Layout>
