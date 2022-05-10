@@ -1,7 +1,7 @@
-import "./Footer.module.css";
+import styles from "./Footer.module.css";
 
-function Footer() {
-  return <footer>Todo List &copy; 2022</footer>;
+function Footer(): JSX.Element {
+  return <footer className={styles.footer}>Todo List &copy; 2022</footer>;
 }
 
 export default Footer;
