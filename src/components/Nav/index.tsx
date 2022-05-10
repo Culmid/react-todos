@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "./Nav.module.css";
 
-function Nav() {
+function Nav(): JSX.Element {
   return (
     <nav>
       <ul className={styles["nav-list"]}>
