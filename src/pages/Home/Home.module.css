@@ -14,14 +14,14 @@
   height: auto;
 }
 
-figure {
+.figure {
   background: #c4c4c4;
   border-radius: 125px;
   margin: 0;
   width: 100%;
 }
 
-figcaption {
+.figcaption {
   margin-left: 50px;
   margin-bottom: 10px;
 }

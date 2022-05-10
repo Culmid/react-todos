@@ -16,7 +16,7 @@ type Quote = {
   tags: string[];
 };
 
-function Home() {
+function Home(): JSX.Element {
   const [quote, setQuote]: [
     Quote | null,
     Dispatch<SetStateAction<Quote | null>>
@@ -34,11 +34,11 @@ function Home() {
   return (
     <div className={styles["home-div"]}>
       {quote ? (
-        <figure>
+        <figure className={styles.figure}>
           <blockquote>
             <p>{quote.content}</p>
           </blockquote>
-          <figcaption>—{quote.author}</figcaption>
+          <figcaption className={styles.figcaption}>—{quote.author}</figcaption>
         </figure>
       ) : (
         <GrRefresh className={styles.loading} />
