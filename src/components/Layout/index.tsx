@@ -3,7 +3,7 @@ import Footer from "../Footer";
 import Header from "../Header";
 import styles from "./Layout.module.css";
 
-function Layout({ children }: { children: ReactNode }) {
+function Layout({ children }: { children: ReactNode }): JSX.Element {
   return (
     <div className={styles["page-wrapper"]}>
       <Header />
