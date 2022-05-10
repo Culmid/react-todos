@@ -12,7 +12,7 @@
   filter: drop-shadow(0 5px 2px #000);
 }
 
-h3 {
+.header {
   font-size: 26px;
   margin: 0;
   max-width: 375px;

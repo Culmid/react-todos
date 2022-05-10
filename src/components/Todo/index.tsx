@@ -17,14 +17,14 @@ function Todo({
   color: string;
   onDeleteTodo: (id: number) => void;
   onToggleTodo: (id: number) => void;
-}) {
-  function onDeleteClick(id: number) {
+}): JSX.Element {
+  function onDeleteClick(id: number): void {
     onDeleteTodo(id);
   }
 
   return (
     <div className={styles["todo-wrapper"]} style={{ background, color }}>
-      <h3>{title}</h3>
+      <h3 className={styles.header}>{title}</h3>
       <div className={styles["button-container"]}>
         <button className={styles.button} onClick={() => onToggleTodo(id)}>
           {isComplete ? <FiCheckCircle /> : <FiCircle />}
