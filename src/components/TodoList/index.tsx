@@ -12,13 +12,13 @@ function TodoList() {
   function onAddNewTodo(title: string, background: string, color: string) {
     dispatch({
       type: "addTodo",
-      payload: { title: title, background: background, color: color },
+      payload: { title, background, color },
     });
     setFormVisible(false);
   }
 
   function onDeleteTodo(id: number) {
-    dispatch({ type: "deleteTodo", payload: { id: id } });
+    dispatch({ type: "deleteTodo", payload: { id } });
   }
 
   function onResetButtonClick() {
@@ -30,7 +30,7 @@ function TodoList() {
   }
 
   function onToggleTodo(id: number) {
-    dispatch({ type: "toggleTodo", payload: { id: id } });
+    dispatch({ type: "toggleTodo", payload: { id } });
   }
 
   function onFormExit() {

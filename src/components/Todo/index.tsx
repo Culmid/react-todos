@@ -23,10 +23,7 @@ function Todo({
   }
 
   return (
-    <div
-      className={styles["todo-wrapper"]}
-      style={{ background: background, color: color }}
-    >
+    <div className={styles["todo-wrapper"]} style={{ background, color }}>
       <h3>{title}</h3>
       <div className={styles["button-container"]}>
         <button className={styles.button} onClick={() => onToggleTodo(id)}>
