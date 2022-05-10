@@ -18,15 +18,15 @@ export const initialState: TodoType[] = [
     id: 1,
     title: "Take out trash",
     isComplete: false,
-    background: "#c4c4c4",
-    color: "#000000",
+    background: "#00f",
+    color: "#f00",
   },
   {
     id: 2,
     title: "Feed pets",
     isComplete: true,
-    background: "#c4c4c4",
-    color: "#000000",
+    background: "#000",
+    color: "#fff",
   },
 ];
 
@@ -38,7 +38,7 @@ export const reducer = (
       | { title: string; background: string; color: string }
       | { id: number };
   }
-) => {
+): TodoType[] => {
   switch (action.type) {
     case "addTodo":
       if (action.payload && !("id" in action.payload)) {
@@ -48,8 +48,8 @@ export const reducer = (
           action.payload.background,
           action.payload.color
         );
-        const newTodos = [...state];
-        const newId = Math.floor(Math.random() * 9999999);
+        const newTodos: TodoType[] = [...state];
+        const newId: number = Math.floor(Math.random() * 9999999);
         newTodos.push({
           id: newId,
           title: action.payload.title,
