@@ -28,4 +28,34 @@ async function addTodo(todo) {
   }
 }
 
-export { getTodos, addTodo };
+async function updateTodo(todo) {
+  try {
+    const response = await fetch(`${SERVER_URL}/api/todo/${todo.id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(todo),
+    });
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+async function deleteTodo(id) {
+  try {
+    const response = await fetch(`${SERVER_URL}/api/todo/${id}`, {
+      method: "DELETE",
+    });
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getTodos, addTodo, updateTodo, deleteTodo };

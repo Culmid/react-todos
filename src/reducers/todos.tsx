@@ -1,4 +1,4 @@
-import { addTodo } from "../utils/utils";
+import { addTodo, deleteTodo, updateTodo } from "../utils/utils";
 
 export type TodoType = {
   id: number;
@@ -76,6 +76,9 @@ export const reducer = (
     case "deleteTodo":
       if (action.payload && "id" in action.payload) {
         console.log("deleteTodo", action.payload.id);
+        deleteTodo(action.payload.id)
+          .then((data) => console.log(data))
+          .catch((error) => console.log(error));
         return state.filter(
           (todo) =>
             action.payload &&
@@ -90,13 +93,26 @@ export const reducer = (
     case "toggleTodo":
       if (action.payload && "id" in action.payload) {
         console.log("toggleTodo", action.payload.id);
-        return state.map((todo) =>
+        const newState: TodoType[] = state.map((todo) =>
           action.payload &&
           "id" in action.payload &&
           todo.id === action.payload.id
             ? { ...todo, isComplete: !todo.isComplete }
             : todo
         );
+
+        updateTodo(
+          newState.find(
+            (todo) =>
+              action.payload &&
+              "id" in action.payload &&
+              todo.id === action.payload.id
+          )
+        )
+          .then((data) => console.log(data))
+          .catch((error) => console.log(error));
+
+        return newState;
       }
       throw Error("Illegal toggleTodo format");
     case "setTodos":
