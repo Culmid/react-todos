@@ -1,9 +1,10 @@
-import React, { useReducer, useState } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import Todo from "../Todo";
 import styles from "./TodoList.module.css";
 import { initialState, reducer, TodoType } from "../../reducers/todos";
 import NewTodoForm from "../NewTodoForm";
 import { FiPlus, FiRefreshCw } from "react-icons/fi";
+import { getTodos } from "../../utils/utils";
 
 function TodoList(): JSX.Element {
   const [state, dispatch]: [
@@ -38,6 +39,19 @@ function TodoList(): JSX.Element {
     React.Dispatch<React.SetStateAction<boolean>>
   ] = useState<boolean>(false);
 
+  useEffect(() => {
+    updateTodos();
+  }, []);
+
+  function updateTodos() {
+    getTodos()
+      .then((data) => {
+        console.log(data);
+        dispatch({ type: "setTodos", payload: data });
+      })
+      .catch((err) => console.log(err));
+  }
+
   function onAddNewTodo(
     title: string,
     background: string,
@@ -55,7 +69,8 @@ function TodoList(): JSX.Element {
   }
 
   function onResetButtonClick(): void {
-    dispatch({ type: "resetTodos" });
+    // dispatch({ type: "resetTodos" }); Original Functionality
+    updateTodos();
   }
 
   function onAddTodoClick(): void {

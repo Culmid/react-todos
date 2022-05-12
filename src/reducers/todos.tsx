@@ -36,12 +36,17 @@ export const reducer = (
     type: string;
     payload?:
       | { title: string; background: string; color: string }
-      | { id: number };
+      | { id: number }
+      | TodoType[];
   }
 ): TodoType[] => {
   switch (action.type) {
     case "addTodo":
-      if (action.payload && !("id" in action.payload)) {
+      if (
+        action.payload &&
+        !("id" in action.payload) &&
+        !(action.payload instanceof Array)
+      ) {
         console.log(
           "addTodo",
           action.payload.title,
@@ -71,9 +76,9 @@ export const reducer = (
         );
       }
       throw Error("Illegal deleteTodo format");
-    case "resetTodos":
-      console.log("resetTodos");
-      return initialState;
+    // case "resetTodos": Original Functionality
+    //   console.log("resetTodos");
+    //   return initialState;
     case "toggleTodo":
       if (action.payload && "id" in action.payload) {
         console.log("toggleTodo", action.payload.id);
@@ -86,6 +91,12 @@ export const reducer = (
         );
       }
       throw Error("Illegal toggleTodo format");
+    case "setTodos":
+      if (action.payload && action.payload instanceof Array) {
+        console.log("setTodos", action.payload);
+        return action.payload;
+      }
+      throw Error("Illegal setTodos format");
     default:
       throw Error("Unrecognized reducer action type");
   }
