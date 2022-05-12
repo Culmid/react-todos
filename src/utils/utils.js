@@ -11,4 +11,21 @@ async function getTodos() {
   }
 }
 
-export { getTodos };
+async function addTodo(todo) {
+  try {
+    const response = await fetch(`${SERVER_URL}/api/todo`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(todo),
+    });
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export { getTodos, addTodo };

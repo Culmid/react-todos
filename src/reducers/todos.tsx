@@ -1,3 +1,5 @@
+import { addTodo } from "../utils/utils";
+
 export type TodoType = {
   id: number;
   title: string;
@@ -55,13 +57,19 @@ export const reducer = (
         );
         const newTodos: TodoType[] = [...state];
         const newId: number = Math.floor(Math.random() * 9999999);
-        newTodos.push({
+        const newTodo: TodoType = {
           id: newId,
           title: action.payload.title,
           isComplete: false,
           background: action.payload.background,
           color: action.payload.color,
-        });
+        };
+        newTodos.push(newTodo);
+
+        addTodo(newTodo)
+          .then((data) => console.log(data))
+          .catch((error) => console.log(error));
+
         return newTodos;
       }
       throw Error("Illegal addTodo format");
